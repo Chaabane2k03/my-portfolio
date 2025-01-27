@@ -10,6 +10,7 @@
   },
   "dependencies": {
     "@apollo/client": "^3.12.7",
+    "@react-three/drei": "^3.11.1-alpha.1",
     "@react-three/fiber": "^9.0.0-alpha.8",
     "@supabase/supabase-js": "^2.48.1",
     "apollo-client": "^2.6.10",

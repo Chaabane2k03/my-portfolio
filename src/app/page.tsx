@@ -1,5 +1,5 @@
 import Image from "next/image";
-import EarthScene from "./components/Earth";
+import EarthScene  from './components/Test'
 
 export default function Home() {
   return (
@@ -26,7 +26,7 @@ export default function Home() {
       </nav>
       {/* 3D Section */}
       <section className="relative h-[calc(100vh-80px)]">
-        <EarthScene />
+        <EarthScene/>
       </section>
       {/* Hero Section */}
       <section className="flex flex-col items-center justify-center h-[calc(100vh-80px)] text-center px-4">

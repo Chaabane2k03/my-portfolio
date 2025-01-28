@@ -1,4 +1,4 @@
-import { supabase } from './supabaseClient';
+import { supabase } from '../app/graphql/supabaseClient';
 
 export async function signUpAdmin(email: string, password: string, username: string) {
   // Step 1: Sign up the user with Supabase Auth
@@ -23,4 +23,17 @@ export async function signUpAdmin(email: string, password: string, username: str
   if (profileError) throw profileError;
 
   return profileData;
+}
+
+
+
+
+export async function login(email: string, password: string) {
+  const { data, error } = await supabase.auth.signInWithPassword({
+    email,
+    password,
+  });
+
+  if (error) throw error;
+  return data;
 }

@@ -1,22 +1,24 @@
 "use client";
 
-import React, { useRef } from "react";
+import React, { useRef, useEffect } from "react";
 import { useGLTF } from "@react-three/drei";
 import { Canvas, useFrame } from "@react-three/fiber";
 
-function Model({ url }) {
+function Model({ url, onLoad }) {
   const { scene } = useGLTF(url); // Load the GLB file
   const modelRef = useRef();
 
-  // Automatically rotate the model
   useFrame(() => {
     if (modelRef.current) {
       modelRef.current.rotation.y += 0.01; // Rotate around the Y-axis
     }
-
-    
-
   });
+
+  useEffect(() => {
+    if (onLoad) {
+      onLoad(); // Notify when the model is loaded
+    }
+  }, [onLoad]);
 
   return (
     <primitive
@@ -28,7 +30,7 @@ function Model({ url }) {
   );
 }
 
-export default function RetroComputer() {
+export default function RetroComputer({ onLoad }) {
   return (
     <Canvas
       style={{ height: "100vh", width: "100%" }}
@@ -36,7 +38,7 @@ export default function RetroComputer() {
     >
       <ambientLight intensity={0.5} />
       <pointLight position={[10, 10, 10]} />
-      <Model url="/models/retro_computer.glb" />
+      <Model url="/models/retro_computer.glb" onLoad={onLoad} />
     </Canvas>
   );
 }

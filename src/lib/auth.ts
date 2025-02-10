@@ -35,5 +35,16 @@ export async function login(email: string, password: string) {
   });
 
   if (error) throw error;
+
+  // Extract the token from the response
+  const token = data.session?.access_token;
+
+  if (token) {
+    // Save the token in a cookie
+    document.cookie = `auth_token=${token}; path=/; secure; samesite=lax`;
+  } else {
+    throw new Error('Failed to retrieve authentication token');
+  }
+
   return data;
 }

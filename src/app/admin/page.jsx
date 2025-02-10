@@ -1,9 +1,20 @@
 "use client"; // This tells the computer that this part is for the user to see
 
-import React, { useState } from 'react'; // We need these tools to make our app work
+import React, { useState , useEffect} from 'react'; // We need these tools to make our app work
+import { useRouter } from 'next/navigation';
+
 import { Box, CssBaseline, Drawer, AppBar, Toolbar, List, ListItem, ListItemIcon, ListItemText, Typography, IconButton, Avatar, Menu, MenuItem, Tooltip } from '@mui/material'; // These are special building blocks for our app
 import { Home, Settings, Info, Menu as MenuIcon, Logout } from '@mui/icons-material'; // These are pictures we can use in our app
 import { createTheme, ThemeProvider } from '@mui/material/styles'; // These help us make our app look nice
+import ProfilePage from './admin_components/ProfilePage'; // This is the home part of our app
+import SkillsPage from './admin_components/SkillsPage'; // This is the settings part of our app
+import ProjectsPage from './admin_components/ProjectsPage'; // This is the about part of our app
+import ExperiencePage from './admin_components/ExperiencePage'; // This is the about part of our app
+
+
+
+
+
 
 const drawerWidth = 240; // This is how wide the side menu is
 
@@ -23,15 +34,29 @@ const darkTheme = createTheme({
 
 // These are the different parts of our app we can show
 const components = {
-  Home: () => <Typography variant="h4" color="text.primary">Home Component</Typography>, // Home part
-  Settings: () => <Typography variant="h4" color="text.primary">Settings Component</Typography>, // Settings part
-  About: () => <Typography variant="h4" color="text.primary">About Component</Typography>, // About part
+  Profile: () => <Typography variant="h4" color="text.primary"><ProfilePage/></Typography>, // Home part
+  Skills: () => <Typography variant="h4" color="text.primary"><SkillsPage/></Typography>, // Settings part
+  Projects: () => <Typography variant="h4" color="text.primary"><ProjectsPage/></Typography>, // About part
+  Experience: () => <Typography variant="h4" color="text.primary"><ExperiencePage/></Typography>, // About part
+
 };
 
 const AdminPanel = () => {
   const [activeComponent, setActiveComponent] = useState('Home'); // This keeps track of which part we are looking at
   const [menuExpanded, setMenuExpanded] = useState(true); // This keeps track if the side menu is open or closed
   const [anchorElUser, setAnchorElUser] = useState(null); // This keeps track if the user menu is open or closed
+
+
+
+  const router = useRouter();
+
+  useEffect(() => {
+    const token = document.cookie.split('; ').find(row => row.startsWith('auth_token='));
+    if (!token) {
+      router.push('/login');
+    }
+  }, [router]);
+  
 
   // This opens the user menu
   const handleOpenUserMenu = (event) => {
@@ -45,9 +70,11 @@ const AdminPanel = () => {
 
   // These are the items in the side menu
   const menuItems = [
-    { text: 'Home', icon: <Home /> }, // Home item
-    { text: 'Settings', icon: <Settings /> }, // Settings item
-    { text: 'About', icon: <Info /> }, // About item
+    { text: 'Profile', icon: <Home /> }, // Home item
+    { text: 'Skills', icon: <Info /> }, // Settings item
+    { text: 'Projects', icon: <Info /> },// About item
+    { text: 'Experience', icon: <Info /> },// About item
+    { text: 'Logout', icon: <Logout /> }, // Logout item
   ];
 
   // These are the items in the user settings menu
@@ -75,7 +102,7 @@ const AdminPanel = () => {
               <MenuIcon /> {/* This is the menu button icon */}
             </IconButton>
             <Typography variant="h6" noWrap sx={{ flexGrow: 1, textTransform: 'uppercase', color: 'text.primary' }}>
-              Admin Panel {/* This is the title of our app */}
+              Welcome Back {/* This is the title of our app */}
             </Typography>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">

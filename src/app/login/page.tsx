@@ -3,18 +3,24 @@
 import { useState } from 'react';
 import { login } from '@/lib/auth';
 import Image from 'next/image';
+import { useRouter } from 'next/navigation';
 
 export default function LoginPage() {
   const [email, setEmail] = useState('');
   const [password, setPassword] = useState('');
+  const router = useRouter();
 
   const handleLogin = async () => {
     try {
       await login(email, password);
       alert('Logged in successfully!');
-      window.location.href = '/admin';
-    } catch (error : any) {
-      alert('Login failed: ' + error.message);
+      router.push('/admin');
+    } catch (error: unknown) {
+      if (error instanceof Error) {
+        alert('Login failed: ' + error.message);
+      } else {
+        alert('Login failed');
+      }
     }
   };
 

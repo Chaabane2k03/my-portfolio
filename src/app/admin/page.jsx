@@ -1,134 +1,153 @@
-"use client"; // This tells the computer that this part is for the user to see
+"use client";
 
-import React, { useState , useEffect} from 'react'; // We need these tools to make our app work
+import React, { useState, useEffect } from 'react';
 import { useRouter } from 'next/navigation';
+import {
+  Box,
+  CssBaseline,
+  Drawer,
+  AppBar,
+  Toolbar,
+  List,
+  ListItem,
+  ListItemIcon,
+  ListItemText,
+  Typography,
+  IconButton,
+  Avatar,
+  Menu,
+  MenuItem,
+  Tooltip,
+  Badge,
+  Switch,
+} from '@mui/material';
+import {
+  Home,
+  Settings,
+  Info,
+  Menu as MenuIcon,
+  Logout,
+  Notifications,
+  Brightness4,
+  Brightness7,
+} from '@mui/icons-material';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import ProfilePage from './admin_components/ProfilePage';
+import SkillsPage from './admin_components/SkillsPage';
+import ProjectsPage from './admin_components/ProjectsPage';
+import ExperiencePage from './admin_components/ExperiencePage';
 
-import { Box, CssBaseline, Drawer, AppBar, Toolbar, List, ListItem, ListItemIcon, ListItemText, Typography, IconButton, Avatar, Menu, MenuItem, Tooltip } from '@mui/material'; // These are special building blocks for our app
-import { Home, Settings, Info, Menu as MenuIcon, Logout } from '@mui/icons-material'; // These are pictures we can use in our app
-import { createTheme, ThemeProvider } from '@mui/material/styles'; // These help us make our app look nice
-import ProfilePage from './admin_components/ProfilePage'; // This is the home part of our app
-import SkillsPage from './admin_components/SkillsPage'; // This is the settings part of our app
-import ProjectsPage from './admin_components/ProjectsPage'; // This is the about part of our app
-import ExperiencePage from './admin_components/ExperiencePage'; // This is the about part of our app
-
-
-
-
-
-
-const drawerWidth = 240; // This is how wide the side menu is
-
-// This is the color theme for our app, making it dark
-const darkTheme = createTheme({
-  palette: {
-    mode: 'dark',
-    background: {
-      default: '#1c1c1c', // Dark background color
-      paper: '#333333', // Dark paper color
-    },
-    text: {
-      primary: '#ffffff', // White text color
-    },
-  },
-});
-
-// These are the different parts of our app we can show
-const components = {
-  Profile: () => <Typography variant="h4" color="text.primary"><ProfilePage/></Typography>, // Home part
-  Skills: () => <Typography variant="h4" color="text.primary"><SkillsPage/></Typography>, // Settings part
-  Projects: () => <Typography variant="h4" color="text.primary"><ProjectsPage/></Typography>, // About part
-  Experience: () => <Typography variant="h4" color="text.primary"><ExperiencePage/></Typography>, // About part
-
-};
+const drawerWidth = 240;
 
 const AdminPanel = () => {
-  const [activeComponent, setActiveComponent] = useState('Home'); // This keeps track of which part we are looking at
-  const [menuExpanded, setMenuExpanded] = useState(true); // This keeps track if the side menu is open or closed
-  const [anchorElUser, setAnchorElUser] = useState(null); // This keeps track if the user menu is open or closed
-
-
+  const [activeComponent, setActiveComponent] = useState('Profile');
+  const [menuExpanded, setMenuExpanded] = useState(true);
+  const [anchorElUser, setAnchorElUser] = useState(null);
+  const [darkMode, setDarkMode] = useState(false);
 
   const router = useRouter();
 
   useEffect(() => {
-    const token = document.cookie.split('; ').find(row => row.startsWith('auth_token='));
+    const token = document.cookie.split('; ').find((row) => row.startsWith('auth_token='));
     if (!token) {
       router.push('/login');
     }
   }, [router]);
-  
 
-  // This opens the user menu
+  const theme = createTheme({
+    palette: {
+      mode: darkMode ? 'dark' : 'light',
+      background: {
+        default: darkMode ? '#1c1c1c' : '#ffffff',
+        paper: darkMode ? '#333333' : '#f5f5f5',
+      },
+      text: {
+        primary: darkMode ? '#ffffff' : '#000000',
+        secondary: darkMode ? '#bbbbbb' : '#555555',
+      },
+    },
+    typography: {
+      fontFamily: 'Roboto, sans-serif',
+    },
+  });
+
+  const components = {
+    Profile: () => <ProfilePage />,
+    Skills: () => <SkillsPage />,
+    Projects: () => <ProjectsPage />,
+    Experience: () => <ExperiencePage />,
+  };
+
   const handleOpenUserMenu = (event) => {
     setAnchorElUser(event.currentTarget);
   };
 
-  // This closes the user menu
   const handleCloseUserMenu = () => {
     setAnchorElUser(null);
   };
 
-  // These are the items in the side menu
   const menuItems = [
-    { text: 'Profile', icon: <Home /> }, // Home item
-    { text: 'Skills', icon: <Info /> }, // Settings item
-    { text: 'Projects', icon: <Info /> },// About item
-    { text: 'Experience', icon: <Info /> },// About item
-    { text: 'Logout', icon: <Logout /> }, // Logout item
+    { text: 'Profile', icon: <Home /> },
+    { text: 'Skills', icon: <Settings /> },
+    { text: 'Projects', icon: <Info /> },
+    { text: 'Experience', icon: <Info /> },
+    { text: 'Logout', icon: <Logout /> },
   ];
 
-  // These are the items in the user settings menu
-  const userSettings = ['Profile', 'Account', 'Dashboard', 'Logout']; // User settings items
-
   return (
-    <ThemeProvider theme={darkTheme}> {/* This makes our app use the dark theme */}
-      <Box sx={{ display: 'flex', bgcolor: 'background.default', color: 'text.primary' }}> {/* This is the main container for our app */}
-        <CssBaseline /> {/* This makes sure our app looks good on all devices */}
+    <ThemeProvider theme={theme}>
+      <Box sx={{ display: 'flex', bgcolor: 'background.default', color: 'text.primary' }}>
+        <CssBaseline />
         <AppBar
           position="fixed"
           sx={{
             bgcolor: 'background.paper',
-            width: { sm: `calc(100% - ${menuExpanded ? drawerWidth : 60}px)` }, // This makes the top bar adjust when the side menu is open or closed
-            ml: { sm: `${menuExpanded ? drawerWidth : 60}px` }, // This moves the top bar to the right when the side menu is open
+            width: { sm: `calc(100% - ${menuExpanded ? drawerWidth : 60}px)` },
+            ml: { sm: `${menuExpanded ? drawerWidth : 60}px` },
+            boxShadow: 3,
           }}
         >
           <Toolbar>
             <IconButton
               color="inherit"
               edge="start"
-              onClick={() => setMenuExpanded(!menuExpanded)} // This toggles the side menu open or closed
+              onClick={() => setMenuExpanded(!menuExpanded)}
               sx={{ mr: 2 }}
             >
-              <MenuIcon /> {/* This is the menu button icon */}
+              <MenuIcon />
             </IconButton>
-            <Typography variant="h6" noWrap sx={{ flexGrow: 1, textTransform: 'uppercase', color: 'text.primary' }}>
-              Welcome Back {/* This is the title of our app */}
+            <Typography variant="h6" noWrap sx={{ flexGrow: 1, textTransform: 'uppercase' }}>
+              Welcome Back, Admin
             </Typography>
+            <IconButton color="inherit">
+              <Badge badgeContent={4} color="error">
+                <Notifications />
+              </Badge>
+            </IconButton>
+            <Tooltip title="Toggle dark mode">
+              <IconButton color="inherit" onClick={() => setDarkMode(!darkMode)}>
+                {darkMode ? <Brightness7 /> : <Brightness4 />}
+              </IconButton>
+            </Tooltip>
             <Box sx={{ flexGrow: 0 }}>
               <Tooltip title="Open settings">
                 <IconButton onClick={handleOpenUserMenu} sx={{ p: 0 }}>
-                  <Avatar alt="User" src="/static/images/avatar/2.jpg" /> {/* This is the user avatar */}
+                  <Avatar alt="User" src="/static/images/avatar/2.jpg" />
                 </IconButton>
               </Tooltip>
               <Menu
                 sx={{ mt: '45px' }}
                 id="menu-appbar"
                 anchorEl={anchorElUser}
-                anchorOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
+                anchorOrigin={{ vertical: 'top', horizontal: 'right' }}
                 keepMounted
-                transformOrigin={{
-                  vertical: 'top',
-                  horizontal: 'right',
-                }}
-                open={Boolean(anchorElUser)} // This checks if the user menu is open
-                onClose={handleCloseUserMenu} // This closes the user menu
+                transformOrigin={{ vertical: 'top', horizontal: 'right' }}
+                open={Boolean(anchorElUser)}
+                onClose={handleCloseUserMenu}
               >
-                {userSettings.map((setting) => (
+                {['Profile', 'Account', 'Dashboard', 'Logout'].map((setting) => (
                   <MenuItem key={setting} onClick={handleCloseUserMenu}>
-                    <Typography textAlign="center">{setting}</Typography> {/* This shows each user setting */}
+                    <Typography textAlign="center">{setting}</Typography>
                   </MenuItem>
                 ))}
               </Menu>
@@ -139,14 +158,15 @@ const AdminPanel = () => {
         <Drawer
           variant="permanent"
           sx={{
-            width: menuExpanded ? drawerWidth : 60, // This sets the width of the side menu
+            width: menuExpanded ? drawerWidth : 60,
             flexShrink: 0,
             [`& .MuiDrawer-paper`]: {
-              width: menuExpanded ? drawerWidth : 60, // This sets the width of the side menu paper
+              width: menuExpanded ? drawerWidth : 60,
               boxSizing: 'border-box',
-              transition: 'width 0.3s', // This makes the side menu open and close smoothly
+              transition: 'width 0.3s',
               overflowX: 'hidden',
               bgcolor: 'background.paper',
+              boxShadow: 1,
             },
           }}
         >
@@ -156,11 +176,22 @@ const AdminPanel = () => {
               {menuItems.map((item) => (
                 <ListItem
                   key={item.text}
-                  onClick={() => setActiveComponent(item.text)} // This changes the active component when a menu item is clicked
-                  sx={{ cursor: 'pointer' }}
+                  onClick={() => setActiveComponent(item.text)}
+                  sx={{
+                    cursor: 'pointer',
+                    bgcolor: activeComponent === item.text ? (darkMode ? 'primary.dark' : 'primary.light') : 'transparent',
+                    color: 'text.primary',
+                    borderRadius: 1,
+                    mb: 1,
+                    transition: 'all 0.3s',
+                    '&:hover': {
+                      bgcolor: darkMode ? 'primary.light' : 'primary.main',
+                      color: darkMode ? '#000000' : '#ffffff',
+                    },
+                  }}
                 >
-                  <ListItemIcon>{item.icon}</ListItemIcon> {/* This shows the icon for each menu item */}
-                  {menuExpanded && <ListItemText primary={item.text} />} {/* This shows the text for each menu item if the menu is expanded */}
+                  <ListItemIcon sx={{ color: 'inherit' }}>{item.icon}</ListItemIcon>
+                  {menuExpanded && <ListItemText primary={item.text} />}
                 </ListItem>
               ))}
             </List>
@@ -172,17 +203,17 @@ const AdminPanel = () => {
           sx={{
             flexGrow: 1,
             p: 3,
-            width: { sm: `calc(100% - ${menuExpanded ? drawerWidth : 60}px)` }, // This sets the width of the main content area
+            width: { sm: `calc(100% - ${menuExpanded ? drawerWidth : 60}px)` },
             bgcolor: 'background.default',
             color: 'text.primary',
           }}
         >
           <Toolbar />
-          {components[activeComponent] ? components[activeComponent]() : null} {/* This shows the active component */}
+          {components[activeComponent] ? components[activeComponent]() : null}
         </Box>
       </Box>
     </ThemeProvider>
   );
 };
 
-export default AdminPanel; // This makes our AdminPanel component available to use in other parts of our app
+export default AdminPanel;

@@ -32,10 +32,10 @@ import {
   Brightness7,
 } from '@mui/icons-material';
 import { createTheme, ThemeProvider } from '@mui/material/styles';
-import ProfilePage from './admin_components/ProfilePage';
-import SkillsPage from './admin_components/SkillsPage';
-import ProjectsPage from './admin_components/ProjectsPage';
-import ExperiencePage from './admin_components/ExperiencePage';
+import ProfilePage from './admin_pages/ProfilePage';
+import SkillsPage from './admin_pages/SkillsPage';
+import ProjectsPage from './admin_pages/ProjectsPage';
+import ExperiencePage from './admin_pages/ExperiencePage';
 
 const drawerWidth = 240;
 
@@ -72,7 +72,7 @@ const AdminPanel = () => {
   });
 
   const components = {
-    Profile: () => <ProfilePage />,
+    Profile: () => <ProfilePage dark={darkMode}/>,
     Skills: () => <SkillsPage />,
     Projects: () => <ProjectsPage />,
     Experience: () => <ExperiencePage />,

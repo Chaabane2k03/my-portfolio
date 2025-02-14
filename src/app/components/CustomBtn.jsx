@@ -1,30 +1,24 @@
-/**
- * 
- * TODO : handle this later
- * 
- * import React from "react";
+
+import React from "react";
 
 import Image from "next/image";
 import styles from "../../styles/Buttons.module.css";
-import { useTranslation } from "react-i18next";
-const CustomSaveButton = () => {
-  const { t } = useTranslation();
+const CustomSaveButton = ({text}) => {
 
   return (
     <div className="w-auto flex items-center justify-center">
       <button className={`${styles.modal_button}`} type="submit">
         <Image
-          src={"/assets/checkmark.png"}
+          src={"/checkmark.png"}
           alt="save"
           width={24}
           height={24}
           className="object-contain"
         ></Image>
-        <p className="select-none">{t("Save")}</p>
+        <p className="select-none">{text}</p>
       </button>
     </div>
   );
 };
 
 export default CustomSaveButton;
- */

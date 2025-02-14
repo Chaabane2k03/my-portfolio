@@ -2,6 +2,8 @@
 
 import React, { useState } from "react";
 import { CustomInput , CustomSelect } from "@/app/components/CustomInput";
+import  CustomSaveButton from "@/app/components/CustomBtn";
+
 
 const ProfilePage = () => {
   const [hasCV, setHasCV] = useState(false);
@@ -103,6 +105,7 @@ const ProfilePage = () => {
                 <button className="btn btn-primary" type="button">
                   Uploader un CV
                 </button>
+                <CustomSaveButton text="Save"/>
               </div>
             )}
           </div>

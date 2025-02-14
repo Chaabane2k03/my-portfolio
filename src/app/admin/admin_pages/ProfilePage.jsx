@@ -1,9 +1,9 @@
 "use client";
 
 import React, { useState } from "react";
-import { CustomInput , CustomSelect } from "@/app/components/CustomInput";
-import  CustomSaveButton from "@/app/components/CustomBtn";
-
+import { CustomInput, CustomSelect } from "@/app/components/CustomInput";
+import CustomSaveButton from "@/app/components/CustomBtn";
+import styles from './ProfilePage.module.css';
 
 const ProfilePage = () => {
   const [hasCV, setHasCV] = useState(false);
@@ -42,9 +42,8 @@ const ProfilePage = () => {
               <label className="labels" style={{ color: "#000000" }}>
                 Email
               </label>
-              <input
+              <CustomInput
                 type="email"
-                className="form-control"
                 placeholder="Modifier l'email"
               />
             </div>
@@ -52,9 +51,8 @@ const ProfilePage = () => {
               <label className="labels" style={{ color: "#000000" }}>
                 Ancien mot de passe
               </label>
-              <input
+              <CustomInput
                 type="password"
-                className="form-control"
                 placeholder="Entrer l'ancien mot de passe"
               />
             </div>
@@ -62,9 +60,8 @@ const ProfilePage = () => {
               <label className="labels" style={{ color: "#000000" }}>
                 Nouveau mot de passe
               </label>
-              <input
+              <CustomInput
                 type="password"
-                className="form-control"
                 placeholder="Entrer le nouveau mot de passe"
               />
             </div>
@@ -72,16 +69,13 @@ const ProfilePage = () => {
               <label className="labels" style={{ color: "#000000" }}>
                 Confirmer le nouveau mot de passe
               </label>
-              <input
+              <CustomInput
                 type="password"
-                className="form-control"
                 placeholder="Confirmer le nouveau mot de passe"
               />
             </div>
             <div className="text-center mt-4">
-              <button className="btn btn-primary" type="button">
-                Confirmer les modifications
-              </button>
+              <CustomSaveButton text="Confirmer les modifications" />
             </div>
           </div>
         </div>
@@ -105,7 +99,7 @@ const ProfilePage = () => {
                 <button className="btn btn-primary" type="button">
                   Uploader un CV
                 </button>
-                <CustomSaveButton text="Save"/>
+                <CustomSaveButton text="Save" />
               </div>
             )}
           </div>

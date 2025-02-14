@@ -48,3 +48,13 @@ export async function login(email: string, password: string) {
 
   return data;
 }
+
+
+export async function logout() {
+  const { error } = await supabase.auth.signOut();
+
+  if (error) throw error;
+
+  // Remove the token from the cookie
+  document.cookie = 'auth_token=; path=/; expires=Thu, 01 Jan 1970 00:00:00 GMT';
+}

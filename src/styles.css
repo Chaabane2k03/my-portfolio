@@ -1,0 +1,22 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+    --color-brand-primary: #177c8b;
+    --color-brand-secondary: #084a62;
+    --color-brand-accent: #dc3c35;
+    --color-brand-warning: #ffca5a;
+    --color-brand-neutral: #333031;
+}
+
+body {
+    margin: 0;
+    font-family:
+        Inter,
+        Segoe UI,
+        Roboto,
+        Helvetica,
+        Arial,
+        sans-serif;
+}

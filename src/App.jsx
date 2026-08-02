@@ -1,39 +1,43 @@
-import React from "react";
-import CssBaseline from "@mui/material/CssBaseline";
-import Container from "@mui/material/Container";
-import { ThemeProvider } from "@mui/material/styles";
-
+import { I18nProvider } from "./i18n";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import AboutMe from "./components/AboutMe";
-import Education from "./components/Education";
-import Certifications from "./components/Certifications";
-import Technologies from "./components/Technologies";
+import WhatIsSE from "./components/WhatIsSE";
+import Stats from "./components/Stats";
+import Skills from "./components/Skills";
 import Experience from "./components/Experience";
-import ContactMe from "./components/ContactMe";
+import Leadership from "./components/Leadership";
+import Certifications from "./components/Certifications";
+import Gallery from "./components/Gallery";
+import Education from "./components/Education";
+import Contact from "./components/Contact";
 import Blogs from "./components/Blogs";
 import Footer from "./components/Footer";
-import theme from "./theme";
+import ScrollProgress from "./components/ScrollProgress";
+import FloatingParticles from "./components/FloatingParticles";
 
 function App() {
   return (
-    <ThemeProvider theme={theme}>
-      <CssBaseline />
-      <div className="min-h-screen bg-slate-950 text-slate-100">
-        <Container maxWidth="lg" className="space-y-6 py-6">
-          <Navbar />
+    <I18nProvider>
+      <div className="min-h-screen bg-dark-900 text-slate-100 font-body transition-colors duration-500">
+        <ScrollProgress />
+        <FloatingParticles />
+        <Navbar />
+        <main>
           <Hero />
-          <AboutMe />
-          <Education />
-          <Certifications />
-          <Technologies />
+          <WhatIsSE />
+          <Stats />
+          <Skills />
           <Experience />
-          <ContactMe />
+          <Leadership />
+          <Certifications />
+          <Gallery />
+          <Education />
           <Blogs />
-          <Footer />
-        </Container>
+          <Contact />
+        </main>
+        <Footer />
       </div>
-    </ThemeProvider>
+    </I18nProvider>
   );
 }
 

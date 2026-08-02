@@ -2,7 +2,6 @@ import { I18nProvider } from "./i18n";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
 import WhatIsSE from "./components/WhatIsSE";
-import Stats from "./components/Stats";
 import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Leadership from "./components/Leadership";
@@ -24,7 +23,6 @@ function App() {
         <main>
           <Hero />
           <WhatIsSE />
-          <Stats />
           <Skills />
           <Experience />
           <Leadership />

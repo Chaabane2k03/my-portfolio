@@ -62,12 +62,12 @@ const translations = {
     skills: {
       title: "Compétences",
       titleHighlight: "par domaine",
-      subtitle: "// technologies que j'utilise au quotidien",
+      subtitle: "// ma stack 2026",
       domains: {
-        fullstack: "Full-Stack",
-        cloud: "Cloud & DevOps",
-        ai: "Data & AI",
-        db: "Bases de données",
+        frontend: "Frontend",
+        backend: "Backend",
+        devops: "Infra & DevOps",
+        learning: "En apprentissage",
       },
     },
     experience: {
@@ -111,25 +111,32 @@ const translations = {
       title: "Engagement &",
       titleHighlight: "Leadership",
       subtitle: "// au-delà du code",
-      items: [
-        {
-          title: "Junior Consultant",
-          org: "OPTIMA Junior Enterprise",
-          description:
-            "Migration du tech-stack de plateformes Eventra et Glutenia. Audit technique, refonte d'architecture et mise en place de bonnes pratiques de développement.",
-        },
-        {
-          title: "Hackathon ML & Juge Technique",
-          org: "ATIA — Tunisian Association of AI",
-          description:
-            "Participation à des hackathons de Machine Learning. Évaluation technique des projets et mentorat d'équipes universitaires.",
-        },
-      ],
+      optima: {
+        role: "Junior Consultant",
+        org: "OPTIMA Junior Enterprise",
+        period: "Membre Junior-Entreprise",
+        description:
+          "Migration du tech-stack des plateformes Eventra et Glutenia : audit technique, refonte d'architecture et mise en place de bonnes pratiques de développement.",
+        logoHint: "Espace logo",
+      },
+      hackathons: {
+        title: "Hackathons",
+        org: "Pitchs & compétitions",
+        description:
+          "Participation à des hackathons Machine Learning et innovation : conception du produit, pitch devant un jury et mentorat d'équipes universitaires. Mes pitchs sont consultables ci-dessous.",
+        viewPitch: "Voir le pitch",
+      },
     },
     certifications: {
       title: "Certifications",
       titleHighlight: "& badges",
-      subtitle: "// validées et à jour",
+      subtitle: "// validées et en préparation",
+      earned: "Validée",
+      preparing: "En préparation",
+      all: "Tous",
+      earnedStat: "validées",
+      preparingStat: "en préparation",
+      viewPdf: "Voir le certificat",
     },
     education: {
       title: "Formation",
@@ -259,12 +266,12 @@ const translations = {
     skills: {
       title: "Skills",
       titleHighlight: "by domain",
-      subtitle: "// technologies I use daily",
+      subtitle: "// my 2026 stack",
       domains: {
-        fullstack: "Full-Stack",
-        cloud: "Cloud & DevOps",
-        ai: "Data & AI",
-        db: "Databases",
+        frontend: "Frontend",
+        backend: "Backend",
+        devops: "Infra & DevOps",
+        learning: "Learning",
       },
     },
     experience: {
@@ -308,25 +315,32 @@ const translations = {
       title: "Engagement &",
       titleHighlight: "Leadership",
       subtitle: "// beyond the code",
-      items: [
-        {
-          title: "Junior Consultant",
-          org: "OPTIMA Junior Enterprise",
-          description:
-            "Tech-stack migration for Eventra and Glutenia platforms. Technical audit, architecture redesign, and implementation of development best practices.",
-        },
-        {
-          title: "ML Hackathon & Technical Judge",
-          org: "ATIA — Tunisian Association of AI",
-          description:
-            "Participated in Machine Learning hackathons. Technical evaluation of projects and mentoring university teams.",
-        },
-      ],
+      optima: {
+        role: "Junior Consultant",
+        org: "OPTIMA Junior Enterprise",
+        period: "Junior-Enterprise member",
+        description:
+          "Tech-stack migration for the Eventra and Glutenia platforms: technical audit, architecture redesign, and implementation of development best practices.",
+        logoHint: "Logo slot",
+      },
+      hackathons: {
+        title: "Hackathons",
+        org: "Pitches & competitions",
+        description:
+          "Participation in Machine Learning and innovation hackathons: product design, pitching in front of a jury, and mentoring university teams. My pitches are available below.",
+        viewPitch: "View pitch",
+      },
     },
     certifications: {
       title: "Certifications",
       titleHighlight: "& badges",
-      subtitle: "// verified and up to date",
+      subtitle: "// verified and in progress",
+      earned: "Earned",
+      preparing: "In progress",
+      all: "All",
+      earnedStat: "earned",
+      preparingStat: "in progress",
+      viewPdf: "View certificate",
     },
     education: {
       title: "Education",
@@ -400,198 +414,6 @@ const translations = {
       technologies: "Technologies",
     },
   },
-  ar: {
-    nav: {
-      hero: "الرئيسية",
-      about: "نبذة عني",
-      skills: "المهارات",
-      experience: "الخبرة",
-      leadership: "القيادة",
-      certifications: "الشهادات",
-      education: "التعليم",
-      blogs: "المدونة",
-      contact: "التواصل",
-    },
-    hero: {
-      location: "// سوسة، تونس",
-      subtitle1: "مهندس برمجيات",
-      subtitle2: "مطور واجهات أمامية وخلفية",
-      subtitle3: "هاوي للسحابة والذكاء الاصطناعي",
-      description:
-        "طالب هندسة برمجيات أصمم حلول واجهات أمامية وخلفية وسحابة تنتقل من المفهوم إلى النشر. ثلاث شهادات AWS، وstageان، وفضول لا ينطفئ أبداً.",
-      cta: "تحميل السيرة الذاتية",
-    },
-    about: {
-      title: "ماذا يعني أن تكون",
-      titleHighlight: "مهند برمجيات",
-      titleEnd: " ؟",
-      subtitle: "// الأسئلة التي يطرحها الجميع (لكن لا يجرؤ على طرحها)",
-      qa: [
-        {
-          q: "هل يمكنك اختراق فيسبوك شخص ما؟",
-          a: "لا. وحتى لو استطعت، لن أفعل. لكن يمكنني بناء منصة مصرفية آمنة مع JWT والتحقق متعدد العوامل والتشفير من الطرف إلى الطرف. تقريباً بنفس الإثارة، لكن قانونياً.",
-        },
-        {
-          q: "لكن بجد، ماذا تفعل؟",
-          a: "أبني تطبيقات الويب من أ إلى ي — من الزر الذي تنقره إلى البنية التحتية السحابية التي تعمل خلفها. واجهات أمامية وخلفية، سحابة، قليلاً من وكائل الذكاء الاصطناعي. باختصار، أحوّل الأفكار إلى برمجيات تعمل.",
-        },
-        {
-          q: "ماذا يعني 'Full-Stack' بالضبط؟",
-          a: "يعني أنني أفعل الواجهة الأمامية (ما تراه) والخلفية (ما لا تراه). React لجانب المستخدم، Spring Boot أو Flask لجانب الخادم، Docker لتشغيله في كل مكان، AWS لتوسيعه. السكين السويسرية للمطورين.",
-        },
-        {
-          q: "والذكاء الاصطناعي؟ هل تبني روبوتات؟",
-          a: "ليس روبوتات تستحوذ على العالم. وكلاء أذكياء باستخدام LangChain وCrewAI يفكرون ويبحثون عن معلومات ويتصرفون. إنه المكافأة — بناء مساعدين لا يردّون فقط 'لا أعرف'.",
-        },
-        {
-          q: "لماذا لا تصبح طبيباً بدلاً من ذلك؟",
-          a: "لأن الخطأ في الطب يكلف غالياً، والخطأ في البرمجة يتم إصلاحه بـ git revert. أكثر جدية، أحب حل المشكلات المعقدة ورؤية حلولي تُستخدم من قبل أشخاص حقيقيين.",
-        },
-      ],
-      summary:
-        "طالب هندسة برمجيات في كلية العلوم بتونس، طورت نهجاً متعدد التخصصات للبرمجة. stageاي في DRAEXLMAIER Group وSatoripop علّماني بناء منصات قوية — من أتمتة الموارد البشرية إلى الأنظمة المصرفية. ثلاث شهادات AWS معتمدة، وأتعلم شيئاً جديداً كل يوم.",
-    },
-    skills: {
-      title: "المهارات",
-      titleHighlight: "حسب المجال",
-      subtitle: "// التقنيات التي أستخدمها يومياً",
-      domains: {
-        fullstack: "واجهات أمامية وخلفية",
-        cloud: "السحابة و DevOps",
-        ai: "البيانات والذكاء الاصطناعي",
-        db: "قواعد البيانات",
-      },
-    },
-    experience: {
-      title: "الخبرة",
-      titleHighlight: "المهنية",
-      subtitle: "// stageان ومشاريع مهمة",
-      items: [
-        {
-          title: "مهندس برمجيات - متدرب",
-          company: "DRAEXLMAIER Group",
-          period: "يوليو — أغسطس 2025",
-          description:
-            "تطوير منصة low-code لأتمتة عمليات الموارد البشرية. تصميم وتنفيذ بنية معمارية معيارية تتيح إنشاء تطبيقات عمل سريعة بدون برمجة.",
-          tags: ["Low-code", "أتمتة", "بنية معيارية"],
-          pdfUrl: "/files/internships/Stage DRAEXLMAIER Group.pdf",
-          imageSrc: "",
-        },
-        {
-          title: "مطور ويب - متدرب",
-          company: "Satoripop Inc.",
-          period: "يوليو — أغسطس 2024",
-          description:
-            "منصة حجز مواعيد مصرفية باستخدام Spring Boot وAngular. تطوير واجهات RESTful آمنة مع مصادقة JWT ودمج الخدمات المصرفية الموجودة.",
-          tags: ["Spring Boot", "Angular", "واجهات REST", "JWT"],
-          pdfUrl: "/files/internships/Satoripop Angular.pdf",
-          imageSrc: "/images/internships/satoripop.jpg",
-        },
-        {
-          title: "Galylio AI",
-          company: "Galylio AI",
-          period: "2026",
-          description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          tags: ["قريباً"],
-          pdfUrl: "",
-          imageSrc: "",
-        },
-      ],
-    },
-    leadership: {
-      title: "المشاركة وال",
-      titleHighlight: "القيادة",
-      subtitle: "// ما وراء الكود",
-      items: [
-        {
-          title: "مستشار مبتدئ",
-          org: "OPTIMA Junior Enterprise",
-          description:
-            "ترحيل مجموعة تقنيات منصات Eventra وGlutenia. مراجعة تقنية، إعادة هيكلة البنية التحتية، وتطبيق أفضل ممارسات التطوير.",
-        },
-        {
-          title: "هاكاثون ML وقاضٍ فني",
-          org: "ATIA — الجمعية التونسية للذكاء الاصطناعي",
-          description:
-            "المشاركة في هاكاثونات تعلم الآلة. التقييم الفني للمشاريع وإرشاد الفرق الجامعية.",
-        },
-      ],
-    },
-    certifications: {
-      title: "الشهادات",
-      titleHighlight: "والrongnons",
-      subtitle: "// موثقة ومحدّثة",
-    },
-    education: {
-      title: "التعليم",
-      subtitle: "// المسار الأكاديمي",
-      items: [
-        {
-          degree: "هندسة البرمجيات",
-          school: "كلية العلوم بتونس (FST)",
-          period: "2023 — مايو 2027 (المتوقع)",
-          description:
-            "شهادة هندسة في هندسة البرمجيات. تخصص في هندسة البرمجيات والأنظمة الموزعة والذكاء الاصطناعي.",
-        },
-        {
-          degree: "بكالوريا — رياضيات",
-          school: "ثانوية الطاهر السFar",
-          period: "يونيو 2022",
-          description: "بميزة جيد. مسار الرياضيات والعلوم الفيزيائية.",
-        },
-      ],
-    },
-    contact: {
-      title: "لنعمل",
-      titleHighlight: "معاً",
-      subtitle: "// تواصل معي",
-      availability: "متاح لstage bắt đầu من 2026",
-      cta: "تحميل السيرة الذاتية",
-      cards: {
-        email: "البريد الإلكتروني",
-        linkedin: "لينكدإن",
-        github: "غيت هب",
-      },
-    },
-    blogs: {
-      title: "أحدث",
-      titleHighlight: "المقالات",
-      subtitle: "// هندسة البرمجيات والسحابة والدروس العملية",
-      items: [
-        {
-          badge: "الهندسة",
-          readTime: "4 دقائق",
-          title: "من مشروع طالب إلى قرار معماري حقيقي",
-          excerpt: "كيف توازن بين سرعة التسليم وجودة الهندسة بدون تعقيد زائد.",
-          tags: ["architecture", "tradeoffs", "delivery"],
-        },
-        {
-          badge: "الخلفية",
-          readTime: "5 دقائق",
-          title: "واجهات API نظيفة من واقع التدريب",
-          excerpt: "قواعد بسيطة لتأمين وتوثيق وتطوير الـ API بسهولة.",
-          tags: ["spring", "api", "clean-code"],
-        },
-        {
-          badge: "السحابة",
-          readTime: "3 دقائق",
-          title: "عقلية AWS: الكلفة والموثوقية والمراقبة",
-          excerpt: "عادات سحابية تمنيت لو عرفتها قبل أول نشر إنتاجي.",
-          tags: ["aws", "devops", "reliability"],
-        },
-      ],
-    },
-    footer: {
-      built: "بُني بـ",
-    },
-    stats: {
-      certifications: "الشهادات",
-      experience: "سنوات الخبرة",
-      projects: "المشاريع المنجزة",
-      technologies: "التقنيات",
-    },
-  },
 };
 
 const I18nContext = createContext();
@@ -599,14 +421,14 @@ const I18nContext = createContext();
 export function I18nProvider({ children }) {
   const [lang, setLang] = useState(() => {
     if (typeof window !== "undefined") {
-      return localStorage.getItem("portfolio-lang") || "fr";
+      const stored = localStorage.getItem("portfolio-lang");
+      return translations[stored] ? stored : "fr";
     }
     return "fr";
   });
 
   useEffect(() => {
     localStorage.setItem("portfolio-lang", lang);
-    document.documentElement.dir = lang === "ar" ? "rtl" : "ltr";
     document.documentElement.lang = lang;
   }, [lang]);
 
@@ -638,5 +460,4 @@ export function useI18n() {
 export const LANGUAGES = [
   { code: "fr", label: "FR", flag: "🇫🇷" },
   { code: "en", label: "EN", flag: "🇬🇧" },
-  { code: "ar", label: "عربي", flag: "🇹🇳" },
 ];

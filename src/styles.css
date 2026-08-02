@@ -134,15 +134,6 @@
         );
     }
 
-    /* RTL support for Arabic */
-    [dir="rtl"] .font-body {
-        font-family: "Noto Sans Arabic", "Inter", sans-serif;
-    }
-
-    [dir="rtl"] .font-display {
-        font-family: "Noto Sans Arabic", "Space Grotesk", sans-serif;
-    }
-
     .ui-lift {
         transition:
             transform 240ms ease,
@@ -530,6 +521,178 @@
             transform: translateY(-14px) rotate(24deg);
             opacity: 0.55;
         }
+    }
+
+    /* ---- Certifications ---- */
+    .cert-card {
+        transition:
+            transform 280ms ease,
+            box-shadow 320ms ease,
+            border-color 320ms ease,
+            background-color 320ms ease;
+        will-change: transform;
+    }
+
+    .cert-card:hover {
+        transform: translateY(-6px);
+        border-color: rgba(var(--accent), 0.4);
+        background-color: rgba(255, 255, 255, 0.035);
+        box-shadow:
+            0 18px 44px rgba(0, 0, 0, 0.55),
+            0 0 32px rgba(var(--accent), 0.14);
+    }
+
+    .cert-card:hover .cert-badge-img {
+        transform: scale(1.09) rotate(-3deg);
+    }
+
+    .cert-badge-img {
+        transition: transform 420ms ease;
+        will-change: transform;
+    }
+
+    .cert-shine {
+        background: linear-gradient(
+            105deg,
+            transparent 40%,
+            rgba(255, 255, 255, 0.09) 50%,
+            transparent 60%
+        );
+        transform: translateX(-130%);
+        transition: transform 0.9s ease;
+    }
+
+    .cert-card:hover .cert-shine {
+        transform: translateX(130%);
+    }
+
+    .pulse-ring {
+        border: 1px solid rgba(255, 255, 255, 0.5);
+        animation: pulseRing 1.8s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+    }
+
+    @keyframes pulseRing {
+        0% {
+            transform: scale(1);
+            opacity: 0.9;
+        }
+        80%,
+        100% {
+            transform: scale(2.4);
+            opacity: 0;
+        }
+    }
+
+    /* ---- 3D tech sphere (Skills) ---- */
+    .tech-sphere {
+        position: absolute;
+        left: 50%;
+        top: 46%;
+        width: 520px;
+        height: 520px;
+        margin-left: -260px;
+        margin-top: -260px;
+        pointer-events: none;
+        z-index: 0;
+        opacity: 0.16;
+        animation: sphereBob 9s ease-in-out infinite;
+    }
+
+    @keyframes sphereBob {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-16px);
+        }
+    }
+
+    .tech-sphere-glow {
+        position: absolute;
+        inset: 0;
+        border-radius: 50%;
+        background: radial-gradient(
+            circle,
+            rgba(255, 255, 255, 0.09),
+            rgba(255, 255, 255, 0.02) 45%,
+            transparent 68%
+        );
+    }
+
+    .tech-sphere-stage {
+        position: absolute;
+        inset: 0;
+        perspective: 900px;
+    }
+
+    .tech-sphere-rotor {
+        position: absolute;
+        inset: 0;
+        transform-style: preserve-3d;
+        animation: sphereRotate 48s linear infinite;
+    }
+
+    @keyframes sphereRotate {
+        from {
+            transform: rotateX(-16deg) rotateY(0deg);
+        }
+        to {
+            transform: rotateX(-16deg) rotateY(360deg);
+        }
+    }
+
+    .tech-sphere-item {
+        position: absolute;
+        left: 50%;
+        top: 50%;
+        width: 42px;
+        height: 42px;
+        margin: -21px 0 0 -21px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        border-radius: 12px;
+        background: rgba(8, 8, 8, 0.55);
+        border: 1px solid rgba(255, 255, 255, 0.14);
+        box-shadow: 0 4px 18px rgba(0, 0, 0, 0.5);
+        backdrop-filter: blur(2px);
+        -webkit-backdrop-filter: blur(2px);
+    }
+
+    @media (max-width: 640px) {
+        .tech-sphere {
+            transform: scale(0.6);
+            top: 34%;
+        }
+    }
+
+    /* ---- Tech chips (Skills) ---- */
+    .tech-chip {
+        transition:
+            transform 260ms ease,
+            box-shadow 300ms ease,
+            border-color 300ms ease,
+            background-color 300ms ease;
+        will-change: transform;
+    }
+
+    .tech-chip:hover {
+        transform: translateY(-3px);
+        border-color: rgba(var(--tech-color), 0.45);
+        background-color: rgba(255, 255, 255, 0.055);
+        box-shadow:
+            0 12px 30px rgba(0, 0, 0, 0.5),
+            0 0 24px rgba(var(--tech-color), 0.14);
+    }
+
+    .tech-chip:hover .tech-chip-icon {
+        transform: scale(1.12) rotate(-4deg);
+    }
+
+    .tech-chip-icon {
+        transition: transform 320ms ease;
+        will-change: transform;
     }
 
     /* ---- Experience: PDF preview & modal ---- */

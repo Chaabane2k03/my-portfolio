@@ -6,7 +6,7 @@ A creative, SEO-friendly personal portfolio for **Chaabane Boussadia**, focused 
 
 - Modern one-page React portfolio
 - Architecture-oriented positioning (hero + about)
-- Experience, education, skills, and certifications sections
+- Experience, education, skills (filterable tech stack with 3D logo sphere), leadership, and certifications sections
 - Blog preview section
 - SEO metadata (title, description, Open Graph, Twitter)
 - Structured data (`Person` JSON-LD) for better indexing
@@ -29,9 +29,7 @@ npm run preview
 ## Assets used
 
 - `public/Chaabane_Boussadia_CV.pdf`
-- `public/images/fifa-card.png`
 - `public/images/hackathon.png`
-
-## Next suggested improvement
-
-Add your official certification/badge icons and links, then replace the text-only certifications with a visual badge wall.
+- `public/images/optima.jpg`
+- `public/images/certifications/` — certification badges
+- `public/files/hackathons/` — hackathon pitch PDFs

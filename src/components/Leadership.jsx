@@ -1,15 +1,29 @@
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useI18n } from "../i18n";
-import { FiUsers, FiAward } from "react-icons/fi";
-import PhotoSlot from "./PhotoSlot";
+import { FiAward, FiFileText, FiExternalLink } from "react-icons/fi";
 
-const ICONS = [FiUsers, FiAward];
-const PHOTO_KEYS = ["optima-eventra", "atia-hackathon"];
+const PITCHES = [
+  {
+    title: "Campus Compass",
+    file: "/files/hackathons/Pitch Campus Compass.pdf",
+  },
+  {
+    title: "Sa3ed",
+    file: "/files/hackathons/Pitch Sa3ed.pdf",
+  },
+  {
+    title: "عينك ميزانك",
+    file: "/files/hackathons/عينك ميزانك Pitch.pdf",
+  },
+];
+
+const OPTIMA_LOGO = null;
 
 export default function Leadership() {
   const { t } = useI18n();
   const sectionRef = useScrollReveal();
-  const items = t("leadership.items");
+  const optima = t("leadership.optima");
+  const hacks = t("leadership.hackathons");
 
   return (
     <section id="leadership" className="relative py-24 sm:py-32">
@@ -35,63 +49,129 @@ export default function Leadership() {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          {Array.isArray(items) &&
-            items.map((item, i) => (
-              <LeadershipCard
-                key={i}
-                {...item}
-                index={i}
-                iconIndex={i}
-                photoKey={PHOTO_KEYS[i]}
-              />
-            ))}
+          <OptimaCard {...optima} logoImage={OPTIMA_LOGO} />
+          <HackathonsCard {...hacks} pitches={PITCHES} />
         </div>
       </div>
     </section>
   );
 }
 
-function LeadershipCard({
-  title,
-  org,
-  description,
-  index,
-  iconIndex,
-  photoKey,
-}) {
+function OptimaCard({ role, org, period, description, logoImage, logoHint }) {
   const ref = useScrollReveal({ threshold: 0.15 });
-  const Icon = ICONS[iconIndex % ICONS.length];
 
   return (
-    <div
-      ref={ref}
-      className="section-reveal"
-      style={{ transitionDelay: `${index * 100}ms` }}
-    >
-      <div className="ui-lift rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm overflow-hidden transition-all duration-500 hover:border-amber/10 hover:bg-white/[0.04]">
-        <PhotoSlot
-          photoKey={photoKey}
-          aspectRatio="2/1"
-          className="rounded-none border-0 border-b border-white/5"
-          showCaption={false}
-        />
-        <div className="p-5 sm:p-6">
-          <div className="flex items-start gap-3 mb-3">
+    <div ref={ref} className="section-reveal">
+      <article className="ui-lift flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04]">
+        <div className="relative aspect-[2/1] overflow-hidden border-b border-white/5">
+          <img
+            src="/images/optima.jpg"
+            alt={org}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        <div className="flex flex-1 flex-col p-6 sm:p-8">
+          <div className="flex items-center gap-4 mb-5">
+            <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-2xl border border-dashed border-white/25 bg-white/[0.03]">
+              {logoImage ? (
+                <img
+                  src={logoImage}
+                  alt={`${org} logo`}
+                  className="h-full w-full rounded-2xl object-contain"
+                />
+              ) : (
+                <>
+                  <span className="font-display text-2xl sm:text-3xl font-bold text-white/50">
+                    O
+                  </span>
+                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/15 bg-dark-800 px-2 py-px font-mono text-[8px] uppercase tracking-widest text-slate-500">
+                    {logoHint}
+                  </span>
+                </>
+              )}
+            </div>
+
+            <div className="min-w-0">
+              <h3 className="font-display text-xl font-semibold text-white">
+                {role}
+              </h3>
+              <p className="text-amber/80 text-sm font-medium">{org}</p>
+              <p className="mt-1 font-mono text-xs text-slate-500">{period}</p>
+            </div>
+          </div>
+
+          <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
+            {description}
+          </p>
+        </div>
+      </article>
+    </div>
+  );
+}
+
+function HackathonsCard({ title, org, description, viewPitch, pitches }) {
+  const ref = useScrollReveal({ threshold: 0.15 });
+
+  return (
+    <div ref={ref} className="section-reveal" style={{ transitionDelay: "120ms" }}>
+      <article className="ui-lift flex h-full flex-col overflow-hidden rounded-2xl border border-white/[0.06] bg-white/[0.02] backdrop-blur-sm transition-all duration-500 hover:border-white/15 hover:bg-white/[0.04]">
+        <div className="relative aspect-[2/1] overflow-hidden border-b border-white/5">
+          <img
+            src="/images/hackathon.png"
+            alt={title}
+            loading="lazy"
+            className="h-full w-full object-cover"
+          />
+        </div>
+
+        <div className="flex flex-1 flex-col p-6 sm:p-8">
+          <div className="flex items-center gap-3 mb-3">
             <div className="shrink-0 p-2.5 rounded-lg bg-amber/10 border border-amber/20">
-              <Icon className="text-amber" size={20} />
+              <FiAward className="text-amber" size={20} />
             </div>
             <div>
               <h3 className="font-display text-lg font-semibold text-white">
                 {title}
               </h3>
-              <p className="text-crimson/90 text-sm font-medium">{org}</p>
+              <p className="text-amber/80 text-sm font-medium">{org}</p>
             </div>
           </div>
-          <p className="text-slate-400 leading-relaxed text-sm sm:text-base">
+
+          <p className="text-slate-400 leading-relaxed text-sm sm:text-base mb-5">
             {description}
           </p>
+
+          <div className="mt-auto space-y-2">
+            {Array.isArray(pitches) &&
+              pitches.map((pitch) => (
+                <a
+                  key={pitch.file}
+                  href={pitch.file}
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  data-cursor-hover
+                  className="group flex items-center gap-3 rounded-xl border border-white/[0.06] bg-white/[0.02] px-3.5 py-3 transition-all duration-300 hover:border-white/25 hover:bg-white/[0.05] hover:shadow-lg hover:shadow-black/40"
+                >
+                  <span className="flex h-8 w-8 shrink-0 items-center justify-center rounded-lg border border-white/10 bg-dark-800 text-slate-500 transition-colors group-hover:text-white">
+                    <FiFileText size={14} />
+                  </span>
+                  <span className="min-w-0 flex-1 truncate text-sm text-slate-300 group-hover:text-white">
+                    {pitch.title}
+                  </span>
+                  <span className="hidden sm:inline font-mono text-[10px] uppercase tracking-wider text-slate-600 transition-colors group-hover:text-amber">
+                    {viewPitch}
+                  </span>
+                  <FiExternalLink
+                    size={13}
+                    className="shrink-0 text-slate-600 transition-colors group-hover:text-white"
+                  />
+                </a>
+              ))}
+          </div>
         </div>
-      </div>
+      </article>
     </div>
   );
 }

@@ -17,8 +17,6 @@ const PITCHES = [
   },
 ];
 
-const OPTIMA_LOGO = null;
-
 export default function Leadership() {
   const { t } = useI18n();
   const sectionRef = useScrollReveal();
@@ -49,7 +47,7 @@ export default function Leadership() {
         </p>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-8">
-          <OptimaCard {...optima} logoImage={OPTIMA_LOGO} />
+          <OptimaCard {...optima} />
           <HackathonsCard {...hacks} pitches={PITCHES} />
         </div>
       </div>
@@ -57,7 +55,7 @@ export default function Leadership() {
   );
 }
 
-function OptimaCard({ role, org, period, description, logoImage, logoHint }) {
+function OptimaCard({ role, org, period, description }) {
   const ref = useScrollReveal({ threshold: 0.15 });
 
   return (
@@ -73,33 +71,12 @@ function OptimaCard({ role, org, period, description, logoImage, logoHint }) {
         </div>
 
         <div className="flex flex-1 flex-col p-6 sm:p-8">
-          <div className="flex items-center gap-4 mb-5">
-            <div className="relative flex h-16 w-16 sm:h-20 sm:w-20 shrink-0 items-center justify-center rounded-2xl border border-dashed border-white/25 bg-white/[0.03]">
-              {logoImage ? (
-                <img
-                  src={logoImage}
-                  alt={`${org} logo`}
-                  className="h-full w-full rounded-2xl object-contain"
-                />
-              ) : (
-                <>
-                  <span className="font-display text-2xl sm:text-3xl font-bold text-white/50">
-                    O
-                  </span>
-                  <span className="absolute -bottom-2 left-1/2 -translate-x-1/2 whitespace-nowrap rounded-full border border-white/15 bg-dark-800 px-2 py-px font-mono text-[8px] uppercase tracking-widest text-slate-500">
-                    {logoHint}
-                  </span>
-                </>
-              )}
-            </div>
-
-            <div className="min-w-0">
-              <h3 className="font-display text-xl font-semibold text-white">
-                {role}
-              </h3>
-              <p className="text-amber/80 text-sm font-medium">{org}</p>
-              <p className="mt-1 font-mono text-xs text-slate-500">{period}</p>
-            </div>
+          <div className="mb-5">
+            <h3 className="font-display text-xl font-semibold text-white">
+              {role}
+            </h3>
+            <p className="text-amber/80 text-sm font-medium">{org}</p>
+            <p className="mt-1 font-mono text-xs text-slate-500">{period}</p>
           </div>
 
           <p className="text-slate-400 leading-relaxed text-sm sm:text-base">

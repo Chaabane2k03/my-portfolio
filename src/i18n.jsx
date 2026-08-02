@@ -25,7 +25,7 @@ const translations = {
       subtitle2: "Full-Stack Developer",
       subtitle3: "Cloud & AI Enthusiast",
       description:
-        "Étudiant en Génie Logiciel, je conçois des solutions full-stack et cloud qui passent du concept au déploiement. Trois certifications AWS, deux stages, et une curiosité qui ne s'éteint jamais.",
+        "Étudiant en ingénierie informatique spécialisé en génie logiciel, passionné par le développement d'architectures full-stack et cloud scalables, appliquant les bonnes pratiques de system design et les tendances actuelles.",
       cta: "Télécharger mon CV",
     },
     about: {
@@ -52,7 +52,7 @@ const translations = {
           a: "Pas des robots qui prennent le monde. Des agents intelligents avec LangChain et CrewAI qui raisonnent, cherchent de l'information et agissent. C'est le bonus — construire des assistants qui ne répondent pas juste « je ne sais pas ».",
         },
         {
-          q: "Pourquoi tu fais ça rather que de devenir médecin ?",
+          q: "Pourquoi tu fais ça plutôt que de devenir médecin ?",
           a: "Parce qu'un bug en médecine coûte cher, et un bug en code se fixe avec un git revert. Plus sérieusement, j'adore résoudre des problèmes complexes et voir mes solutions utilisées par de vraies personnes.",
         },
       ],
@@ -81,7 +81,7 @@ const translations = {
           period: "Jul — Août 2025",
           description:
             "Développement d'une plateforme low-code d'automatisation des processus RH. Conception et implémentation d'une architecture modulaire permettant la création rapide d'applications métier sans code.",
-          tags: ["Low-code", "Automatisation", "Architecture modulaire"],
+          tags: ["Low-code", "Automatisation", "Power Platform", "Architecture modulaire"],
           pdfUrl: "/files/internships/Stage DRAEXLMAIER Group.pdf",
           imageSrc: "",
         },
@@ -100,8 +100,8 @@ const translations = {
           company: "Galylio AI",
           period: "2026",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          tags: ["À venir"],
+            "Chez Galylio AI, j'ai développé la plateforme Tdiscount, un marketplace pour les vendeurs et ambassadeurs de produits. J'ai conçu et développé la plateforme avec des architectures scalables, en appliquant les concepts de sécurité, de CI/CD, d'accessibilité et de testing.",
+          tags: ["Full-Stack", "System design", "Test SonarQube", "Security"],
           pdfUrl: "",
           imageSrc: "",
         },
@@ -117,7 +117,6 @@ const translations = {
         period: "Membre Junior-Entreprise",
         description:
           "Migration du tech-stack des plateformes Eventra et Glutenia : audit technique, refonte d'architecture et mise en place de bonnes pratiques de développement.",
-        logoHint: "Espace logo",
       },
       hackathons: {
         title: "Hackathons",
@@ -147,14 +146,14 @@ const translations = {
           school: "Faculté des Sciences de Tunis (FST)",
           period: "2023 — Mai 2027 (prévu)",
           description:
-            "Formation d'ingénieur en génie logiciel. Spécialisation en architecture logicielle, systèmes distribués et intelligence artificielle.",
+            "Formation d'ingénieur en génie logiciel. Spécialisation en architecture logicielle, systèmes distribués et intelligence artificielle. Note cumulative (GPA) : 15,89/20 (jusqu'à présent).",
         },
         {
           degree: "Baccalauréat — Mathématiques",
           school: "Lycée Tahar Sfar",
           period: "Juin 2022",
           description:
-            "Mention Bien. Orientation mathématiques et sciences physiques.",
+            "Baccalauréat section Mathématiques, session principale, avec la mention très bien (17,3/20).",
         },
       ],
     },
@@ -163,7 +162,7 @@ const translations = {
       titleHighlight: "ensemble",
       subtitle: "// contactez-moi",
       availability:
-        "Disponible pour un stage ou une alternance à partir de 2026",
+        "Disponible pour un stage à partir de 2026",
       cta: "Télécharger mon CV",
       cards: {
         email: "Email",
@@ -203,7 +202,7 @@ const translations = {
       ],
     },
     footer: {
-      built: "Buildé avec",
+      built: "Construit avec",
     },
     stats: {
       certifications: "Certifications",
@@ -304,8 +303,8 @@ const translations = {
           company: "Galylio AI",
           period: "2026",
           description:
-            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
-          tags: ["Coming soon"],
+            "At Galylio AI, I built the Tdiscount platform, a marketplace for sellers and product ambassadors. I designed and developed the platform with scalable architectures, applying security, CI/CD, accessibility, and testing best practices.",
+          tags: ["Full-Stack", "System design", "SonarQube testing", "Security"],
           pdfUrl: "",
           imageSrc: "",
         },
@@ -321,7 +320,6 @@ const translations = {
         period: "Junior-Enterprise member",
         description:
           "Tech-stack migration for the Eventra and Glutenia platforms: technical audit, architecture redesign, and implementation of development best practices.",
-        logoHint: "Logo slot",
       },
       hackathons: {
         title: "Hackathons",

@@ -1,19 +1,28 @@
+import { lazy, Suspense, useState } from "react";
 import { I18nProvider } from "./i18n";
 import Navbar from "./components/Navbar";
 import Hero from "./components/Hero";
-import WhatIsSE from "./components/WhatIsSE";
-import Skills from "./components/Skills";
-import Experience from "./components/Experience";
-import Leadership from "./components/Leadership";
-import Certifications from "./components/Certifications";
-import Education from "./components/Education";
-import Contact from "./components/Contact";
-import Blogs from "./components/Blogs";
-import Footer from "./components/Footer";
+import LoadingScreen from "./components/LoadingScreen";
 import ScrollProgress from "./components/ScrollProgress";
 import FloatingParticles from "./components/FloatingParticles";
 
+const WhatIsSE = lazy(() => import("./components/WhatIsSE"));
+const Skills = lazy(() => import("./components/Skills"));
+const Experience = lazy(() => import("./components/Experience"));
+const Leadership = lazy(() => import("./components/Leadership"));
+const Certifications = lazy(() => import("./components/Certifications"));
+const Education = lazy(() => import("./components/Education"));
+const Blogs = lazy(() => import("./components/Blogs"));
+const Contact = lazy(() => import("./components/Contact"));
+const Footer = lazy(() => import("./components/Footer"));
+
+function Section({ children }) {
+  return <Suspense fallback={null}>{children}</Suspense>;
+}
+
 function App() {
+  const [appReady, setAppReady] = useState(false);
+
   return (
     <I18nProvider>
       <div className="min-h-screen bg-dark-900 text-slate-100 font-body transition-colors duration-500">
@@ -22,17 +31,36 @@ function App() {
         <Navbar />
         <main>
           <Hero />
-          <WhatIsSE />
-          <Skills />
-          <Experience />
-          <Leadership />
-          <Certifications />
-          <Education />
-          <Blogs />
-          <Contact />
+          <Section>
+            <WhatIsSE />
+          </Section>
+          <Section>
+            <Skills />
+          </Section>
+          <Section>
+            <Experience />
+          </Section>
+          <Section>
+            <Leadership />
+          </Section>
+          <Section>
+            <Certifications />
+          </Section>
+          <Section>
+            <Education />
+          </Section>
+          <Section>
+            <Blogs />
+          </Section>
+          <Section>
+            <Contact />
+          </Section>
         </main>
-        <Footer />
+        <Section>
+          <Footer />
+        </Section>
       </div>
+      {!appReady && <LoadingScreen onDone={() => setAppReady(true)} />}
     </I18nProvider>
   );
 }

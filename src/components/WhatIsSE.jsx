@@ -178,10 +178,7 @@ function IntroSlide() {
           <span className="gradient-text">Chaabane</span>
         </h3>
         <p className="text-slate-400 text-base lg:text-lg leading-relaxed mb-5">
-          Étudiant en Génie Logiciel à la FST Tunis. Je conçois des
-          applications full-stack et cloud, de l&apos;idée au déploiement —
-          trois certifications AWS, deux stages, et une obsession : bien faire
-          les choses.
+          Chaabane BOUSSADIA, étudiant en génie logiciel à la Faculté des Sciences de Tunis, passionné par le développement full-stack, le cloud et l'intelligence artificielle. J'aime résoudre des problèmes complexes et créer des solutions innovantes.
         </p>
         <div className="flex flex-wrap justify-center md:justify-start gap-2">
           {["Full-Stack", "Cloud & DevOps", "IA"].map((chip) => (
@@ -219,9 +216,8 @@ function UniversitySlide() {
           <span className="gradient-text">de Tunis</span>
         </h3>
         <p className="text-slate-400 text-base lg:text-lg leading-relaxed mb-5">
-          Diplôme d&apos;ingénieur en Génie Logiciel (2023 — 2027).
-          Spécialisation en architecture logicielle, systèmes distribués et
-          intelligence artificielle. C&apos;est ici que tout a commencé.
+          Je poursuis actuellement un cycle préparatoire intégré puis un cycle d'ingénieur en informatique à la Faculté des Sciences de Tunis, Université de Tunis El Manar, la meilleure université de Tunisie à l'échelle nationale et internationale.
+          Mon parcours académique m'a permis d'acquérir des compétences solides en génie logiciel, architecture logicielle et systèmes distribués.
         </p>
         <div className="flex flex-wrap justify-center md:justify-start gap-2">
           {["Génie Logiciel", "Architecture", "Systèmes distribués", "IA"].map(
@@ -262,9 +258,8 @@ function GithubSlide() {
           <span className="gradient-text">Chaabane2k03</span>
         </h3>
         <p className="text-slate-400 text-base lg:text-lg leading-relaxed mb-5">
-          Mon terrain de jeu : projets, contributions open-source et
-          expérimentations. Du code propre, des README soignés, des commits
-          réguliers — et quelques repos qu&apos;on n&apos;ose plus rouvrir.
+          Je suis aussi passionné de football, un environnement sportif et compétitif. J'ai ainsi créé une carte FIFA en me basant sur mon profil GitHub et mon parcours jusqu'à aujourd'hui. (Cependant, ma position réelle sur le terrain est gardien de but (GB) et non milieu offensif (CAM).)
+          Je me considère moi-même comme un talent très prometteur à suivre dans le domaine de l'IT. Vous pouvez consulter mon profil GitHub pour découvrir mes projets, mes contributions open-source et mes collaborations avec d'autres développeurs.
         </p>
         <a
           href="https://github.com/Chaabane2k03"

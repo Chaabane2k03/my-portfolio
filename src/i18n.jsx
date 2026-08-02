@@ -82,6 +82,8 @@ const translations = {
           description:
             "Développement d'une plateforme low-code d'automatisation des processus RH. Conception et implémentation d'une architecture modulaire permettant la création rapide d'applications métier sans code.",
           tags: ["Low-code", "Automatisation", "Architecture modulaire"],
+          pdfUrl: "/files/internships/Stage DRAEXLMAIER Group.pdf",
+          imageSrc: "",
         },
         {
           title: "Web Developer Intern",
@@ -90,6 +92,18 @@ const translations = {
           description:
             "Plateforme bancaire de prise de rendez-vous avec Spring Boot & Angular. Développement d'APIs RESTful sécurisées avec authentification JWT et intégration de services bancaires existants.",
           tags: ["Spring Boot", "Angular", "APIs REST", "JWT"],
+          pdfUrl: "/files/internships/Satoripop Angular.pdf",
+          imageSrc: "/images/internships/satoripop.jpg",
+        },
+        {
+          title: "Galylio AI",
+          company: "Galylio AI",
+          period: "2026",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          tags: ["À venir"],
+          pdfUrl: "",
+          imageSrc: "",
         },
       ],
     },
@@ -265,6 +279,8 @@ const translations = {
           description:
             "Development of a low-code platform for HR process automation. Designed and implemented a modular architecture enabling rapid creation of business applications without code.",
           tags: ["Low-code", "Automation", "Modular Architecture"],
+          pdfUrl: "/files/internships/Stage DRAEXLMAIER Group.pdf",
+          imageSrc: "",
         },
         {
           title: "Web Developer Intern",
@@ -273,6 +289,18 @@ const translations = {
           description:
             "Banking appointment platform with Spring Boot & Angular. Developed secured RESTful APIs with JWT authentication and integration with existing banking services.",
           tags: ["Spring Boot", "Angular", "REST APIs", "JWT"],
+          pdfUrl: "/files/internships/Satoripop Angular.pdf",
+          imageSrc: "/images/internships/satoripop.jpg",
+        },
+        {
+          title: "Galylio AI",
+          company: "Galylio AI",
+          period: "2026",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          tags: ["Coming soon"],
+          pdfUrl: "",
+          imageSrc: "",
         },
       ],
     },
@@ -446,6 +474,8 @@ const translations = {
           description:
             "تطوير منصة low-code لأتمتة عمليات الموارد البشرية. تصميم وتنفيذ بنية معمارية معيارية تتيح إنشاء تطبيقات عمل سريعة بدون برمجة.",
           tags: ["Low-code", "أتمتة", "بنية معيارية"],
+          pdfUrl: "/files/internships/Stage DRAEXLMAIER Group.pdf",
+          imageSrc: "",
         },
         {
           title: "مطور ويب - متدرب",
@@ -454,6 +484,18 @@ const translations = {
           description:
             "منصة حجز مواعيد مصرفية باستخدام Spring Boot وAngular. تطوير واجهات RESTful آمنة مع مصادقة JWT ودمج الخدمات المصرفية الموجودة.",
           tags: ["Spring Boot", "Angular", "واجهات REST", "JWT"],
+          pdfUrl: "/files/internships/Satoripop Angular.pdf",
+          imageSrc: "/images/internships/satoripop.jpg",
+        },
+        {
+          title: "Galylio AI",
+          company: "Galylio AI",
+          period: "2026",
+          description:
+            "Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.",
+          tags: ["قريباً"],
+          pdfUrl: "",
+          imageSrc: "",
         },
       ],
     },

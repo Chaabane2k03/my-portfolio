@@ -7,7 +7,6 @@ import Skills from "./components/Skills";
 import Experience from "./components/Experience";
 import Leadership from "./components/Leadership";
 import Certifications from "./components/Certifications";
-import Gallery from "./components/Gallery";
 import Education from "./components/Education";
 import Contact from "./components/Contact";
 import Blogs from "./components/Blogs";
@@ -30,7 +29,6 @@ function App() {
           <Experience />
           <Leadership />
           <Certifications />
-          <Gallery />
           <Education />
           <Blogs />
           <Contact />

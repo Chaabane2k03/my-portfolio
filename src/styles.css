@@ -409,6 +409,216 @@
             transform: rotate(3deg) translateY(-1px);
         }
     }
+
+    /* Circular logo flip card (FST / El Manar) */
+    .flip-face {
+        position: absolute;
+        inset: 0;
+        border-radius: 9999px;
+        backface-visibility: hidden;
+        -webkit-backface-visibility: hidden;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        overflow: hidden;
+        background: #ffffff;
+        border: 2px solid rgba(255, 255, 255, 0.9);
+        box-shadow: 0 8px 24px rgba(0, 0, 0, 0.55);
+    }
+
+    .flip-back {
+        transform: rotateY(180deg);
+    }
+
+    /* Mindmap (Why SE slide) */
+    .mindmap-line {
+        stroke: rgba(255, 255, 255, 0.35);
+        stroke-width: 1.5;
+        stroke-dasharray: 400;
+        stroke-dashoffset: 400;
+        vector-effect: non-scaling-stroke;
+        animation: mindmapDraw 1s ease-out forwards;
+    }
+
+    @keyframes mindmapDraw {
+        to {
+            stroke-dashoffset: 0;
+        }
+    }
+
+    .mindmap-node {
+        opacity: 0;
+        animation: mindmapNodeIn 0.7s ease-out forwards;
+    }
+
+    @keyframes mindmapNodeIn {
+        from {
+            opacity: 0;
+            transform: translateY(14px) scale(0.92);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    /* Diploma connector (Education) */
+    .diploma-connector-path {
+        stroke-dasharray: 6 8;
+        animation: dashMarchOffset 1s linear infinite;
+    }
+
+    @keyframes dashMarchOffset {
+        to {
+            stroke-dashoffset: -28;
+        }
+    }
+
+    .cloud-badge {
+        position: relative;
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        padding: 14px 24px;
+        border-radius: 50px 50px 50px 50px / 62px 62px 42px 42px;
+        border: 1px solid rgba(255, 255, 255, 0.3);
+        background: rgba(255, 255, 255, 0.06);
+        backdrop-filter: blur(6px);
+        -webkit-backdrop-filter: blur(6px);
+        box-shadow: 0 8px 30px rgba(0, 0, 0, 0.35);
+        animation: cloudBob 4s ease-in-out infinite;
+    }
+
+    .cloud-badge::after {
+        content: "";
+        position: absolute;
+        left: -6px;
+        top: 50%;
+        transform: translateY(-50%) rotate(45deg);
+        width: 10px;
+        height: 10px;
+        border-left: 1px solid rgba(255, 255, 255, 0.3);
+        border-bottom: 1px solid rgba(255, 255, 255, 0.3);
+        background: #0d0d0d;
+    }
+
+    @keyframes cloudBob {
+        0%,
+        100% {
+            transform: translateY(0);
+        }
+        50% {
+            transform: translateY(-6px);
+        }
+    }
+
+    .confetti {
+        position: absolute;
+        font-size: 15px;
+        line-height: 1;
+        pointer-events: none;
+        animation: confettiFloat 3s ease-in-out infinite;
+    }
+
+    @keyframes confettiFloat {
+        0%,
+        100% {
+            transform: translateY(0) rotate(0deg);
+            opacity: 0.9;
+        }
+        50% {
+            transform: translateY(-14px) rotate(24deg);
+            opacity: 0.55;
+        }
+    }
+
+    /* ---- Experience: PDF preview & modal ---- */
+    .pdf-preview-card {
+        opacity: 0;
+        transform: translateY(24px);
+        transition:
+            opacity 0.7s ease-out,
+            transform 0.7s ease-out,
+            border-color 0.4s ease,
+            box-shadow 0.4s ease;
+    }
+
+    .section-reveal.revealed .pdf-preview-card {
+        opacity: 1;
+        transform: translateY(0);
+    }
+
+    .pdf-preview-card:hover {
+        border-color: rgba(255, 255, 255, 0.2);
+        box-shadow: 0 16px 44px rgba(0, 0, 0, 0.55);
+    }
+
+    .pdf-preview-card .react-pdf__Document,
+    .pdf-preview-card .react-pdf__Page {
+        display: flex;
+    }
+
+    .pdf-preview-card canvas {
+        border-radius: 12px;
+    }
+
+    .modal-fade {
+        animation: modalFade 0.3s ease-out forwards;
+    }
+
+    .modal-pop {
+        animation: modalPop 0.4s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+    }
+
+    @keyframes modalFade {
+        from {
+            opacity: 0;
+        }
+        to {
+            opacity: 1;
+        }
+    }
+
+    @keyframes modalPop {
+        from {
+            opacity: 0;
+            transform: translateY(24px) scale(0.96);
+        }
+        to {
+            opacity: 1;
+            transform: translateY(0) scale(1);
+        }
+    }
+
+    .pdf-page-in-next {
+        animation: pageInNext 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    .pdf-page-in-prev {
+        animation: pageInPrev 0.35s cubic-bezier(0.16, 1, 0.3, 1) both;
+    }
+
+    @keyframes pageInNext {
+        from {
+            opacity: 0;
+            transform: translateX(40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
+
+    @keyframes pageInPrev {
+        from {
+            opacity: 0;
+            transform: translateX(-40px);
+        }
+        to {
+            opacity: 1;
+            transform: translateX(0);
+        }
+    }
 }
 
 @layer utilities {

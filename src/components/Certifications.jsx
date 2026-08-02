@@ -46,8 +46,8 @@ const COMPANIES = [
       },
       {
         id: "data",
-        name: "Data Analytics — Specialty",
-        code: "DAS-C01",
+        name: "Data Engineering — Associate",
+        code: "DEA-C01",
         image: "/images/certifications/aws/data(preparing).png",
         status: "preparing",
         skills: ["Athena", "Redshift", "Kinesis", "Glue", "QuickSight", "EMR"],

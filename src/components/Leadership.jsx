@@ -1,6 +1,21 @@
+import { useEffect, useState } from "react";
 import { useScrollReveal } from "../hooks/useScrollReveal";
 import { useI18n } from "../i18n";
-import { FiAward, FiFileText, FiExternalLink } from "react-icons/fi";
+import {
+  FiAward,
+  FiFileText,
+  FiExternalLink,
+  FiArrowLeft,
+  FiArrowRight,
+} from "react-icons/fi";
+
+const CLUBS = [
+  { id: "ieee", name: "IEEE", logo: "/images/ieee.png" },
+  { id: "gdgc", name: "GDG", logo: "/images/gdgc.png" },
+  { id: "fsn", name: "FSN", logo: "/images/fsn.png" },
+  { id: "eng-spark", name: "Engineering Spark", logo: "/images/eng_spark.jpeg" },
+  { id: "optima", name: "OPTIMA", logo: "/images/optima.png" },
+];
 
 const PITCHES = [
   {
@@ -50,8 +65,110 @@ export default function Leadership() {
           <OptimaCard {...optima} />
           <HackathonsCard {...hacks} pitches={PITCHES} />
         </div>
+
+        <div className="mt-16">
+          <h3 className="font-display text-xl sm:text-2xl font-semibold text-white text-center mb-8">
+            {t("leadership.clubs")}
+          </h3>
+          <ClubsCarousel clubs={CLUBS} />
+        </div>
       </div>
     </section>
+  );
+}
+
+function ClubsCarousel({ clubs }) {
+  const ref = useScrollReveal({ threshold: 0.15 });
+  const [index, setIndex] = useState(0);
+  const [paused, setPaused] = useState(false);
+  const [perView, setPerView] = useState(3);
+
+  useEffect(() => {
+    const update = () => {
+      const w = window.innerWidth;
+      setPerView(w < 640 ? 1 : w < 1024 ? 2 : 3);
+    };
+    update();
+    window.addEventListener("resize", update);
+    return () => window.removeEventListener("resize", update);
+  }, []);
+
+  const maxIndex = Math.max(0, clubs.length - perView);
+  const safeIndex = Math.min(index, maxIndex);
+
+  useEffect(() => {
+    if (paused) return;
+    const id = setInterval(
+      () => setIndex((i) => (i >= maxIndex ? 0 : i + 1)),
+      4000,
+    );
+    return () => clearInterval(id);
+  }, [paused, maxIndex]);
+
+  return (
+    <div ref={ref} className="section-reveal">
+      <div
+        className="relative"
+        onMouseEnter={() => setPaused(true)}
+        onMouseLeave={() => setPaused(false)}
+      >
+        <div className="overflow-hidden">
+          <div
+            className="flex transition-transform duration-700 ease-out"
+            style={{ transform: `translateX(-${safeIndex * (100 / perView)}%)` }}
+          >
+            {clubs.map((club) => (
+              <div
+                key={club.id}
+                className="w-full sm:w-1/2 lg:w-1/3 shrink-0 px-3"
+              >
+                <div className="flex flex-col items-center gap-3 rounded-2xl border border-white/[0.06] bg-white/[0.02] px-6 py-8 transition-all duration-300 hover:border-white/15 hover:bg-white/[0.04]">
+                  <div className="flex h-20 w-20 sm:h-24 sm:w-24 items-center justify-center overflow-hidden rounded-full border border-white/10 bg-dark-800">
+                    <img
+                      src={club.logo}
+                      alt={club.name}
+                      loading="lazy"
+                      className="h-full w-full object-contain p-2"
+                    />
+                  </div>
+                  <p className="font-mono text-sm text-slate-400">{club.name}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <button
+          onClick={() => setIndex((i) => Math.max(0, i - 1))}
+          aria-label="Précédent"
+          className="absolute -left-2 sm:left-0 top-1/2 -translate-y-1/2 p-2 rounded-full border border-white/15 bg-dark-800/90 text-slate-300 hover:text-white hover:border-white/40 transition-all duration-300 hover:scale-110"
+        >
+          <FiArrowLeft size={16} />
+        </button>
+        <button
+          onClick={() => setIndex((i) => Math.min(maxIndex, i + 1))}
+          aria-label="Suivant"
+          className="absolute -right-2 sm:right-0 top-1/2 -translate-y-1/2 p-2 rounded-full border border-white/15 bg-dark-800/90 text-slate-300 hover:text-white hover:border-white/40 transition-all duration-300 hover:scale-110"
+        >
+          <FiArrowRight size={16} />
+        </button>
+      </div>
+
+      <div className="mt-6 flex items-center justify-center gap-2">
+        {Array.from({ length: maxIndex + 1 }).map((_, i) => (
+          <button
+            key={i}
+            onClick={() => setIndex(i)}
+            aria-label={`Aller à la page ${i + 1}`}
+            className={`h-2 rounded-full transition-all duration-500 ${
+              i === safeIndex
+                ? "w-8 bg-white"
+                : "w-2 bg-white/25 hover:bg-white/50"
+            }`}
+          />
+        ))}
+      </div>
+    </div>
   );
 }
 

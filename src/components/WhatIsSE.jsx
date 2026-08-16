@@ -177,8 +177,9 @@ function IntroSlide() {
           Enchanté, moi c&apos;est{" "}
           <span className="gradient-text">Chaabane</span>
         </h3>
-        <p className="text-slate-400 text-base lg:text-lg leading-relaxed mb-5">
+        <p className="text-slate-400 text-lg lg:text-xl leading-relaxed mb-6">
           Chaabane BOUSSADIA, étudiant en génie logiciel à la Faculté des Sciences de Tunis, passionné par le développement full-stack, le cloud et l'intelligence artificielle. J'aime résoudre des problèmes complexes et créer des solutions innovantes.
+          Ce qui me définit, c'est une curiosité insatiable : concevoir des architectures robustes, expérimenter de nouvelles technologies et transformer des idées vagues en produits concrets. Pour moi, un bon ingénieur ne se contente pas d'écrire du code — il pense système, anticipe les échecs et livre des solutions que les gens utilisent vraiment.
         </p>
         <div className="flex flex-wrap justify-center md:justify-start gap-2">
           {["Full-Stack", "Cloud & DevOps", "IA"].map((chip) => (
@@ -215,9 +216,9 @@ function UniversitySlide() {
           Faculté des Sciences{" "}
           <span className="gradient-text">de Tunis</span>
         </h3>
-        <p className="text-slate-400 text-base lg:text-lg leading-relaxed mb-5">
-          Je poursuis actuellement un cycle préparatoire intégré puis un cycle d'ingénieur en informatique à la Faculté des Sciences de Tunis, Université de Tunis El Manar, la meilleure université de Tunisie à l'échelle nationale et internationale.
-          Mon parcours académique m'a permis d'acquérir des compétences solides en génie logiciel, architecture logicielle et systèmes distribués.
+        <p className="text-slate-400 text-lg lg:text-xl leading-relaxed mb-6">
+          Je poursuis actuellement un cycle d'ingénieur en informatique à la Faculté des Sciences de Tunis, Université de Tunis El Manar, l'une des meilleures universités de Tunisie à l'échelle nationale et internationale.
+          Mon parcours m'a donné des bases solides en génie logiciel, en architecture logicielle et en systèmes distribués. Mais une formation ne s'arrête pas aux amphis : c'est à travers les projets, les hackathons et les stages que j'ai appris à construire — et à casser, puis reconstruire mieux. Chaque cours, chaque échec et chaque réussite a façonné ma façon de penser les problèmes et de concevoir des solutions évolutives.
         </p>
         <div className="flex flex-wrap justify-center md:justify-start gap-2">
           {["Génie Logiciel", "Architecture", "Systèmes distribués", "IA"].map(
@@ -257,9 +258,9 @@ function GithubSlide() {
         <h3 className="font-display text-2xl sm:text-3xl lg:text-4xl font-bold text-white leading-tight mb-4">
           <span className="gradient-text">Chaabane2k03</span>
         </h3>
-        <p className="text-slate-400 text-base lg:text-lg leading-relaxed mb-5">
-          Je suis aussi passionné de football, un environnement sportif et compétitif. J'ai ainsi créé une carte FIFA en me basant sur mon profil GitHub et mon parcours jusqu'à aujourd'hui. (Cependant, ma position réelle sur le terrain est gardien de but (GB) et non milieu offensif (CAM).)
-          Je me considère moi-même comme un talent très prometteur à suivre dans le domaine de l'IT. Vous pouvez consulter mon profil GitHub pour découvrir mes projets, mes contributions open-source et mes collaborations avec d'autres développeurs.
+        <p className="text-slate-400 text-lg lg:text-xl leading-relaxed mb-6">
+          Passionné de football — un environnement sportif et compétitif qui m'a appris la rigueur et l'esprit d'équipe — j'ai créé une carte FIFA inspirée de mon profil GitHub et de mon parcours jusqu'à aujourd'hui. (Petite précision : sur le terrain, je suis gardien de but (GB), pas milieu offensif (CAM).)
+          Je me considère comme un talent prometteur à suivre dans le domaine de l'IT. Sur mon GitHub, vous trouverez mes projets, mes contributions open-source et mes collaborations avec d'autres développeurs. Chaque dépôt raconte une histoire : une problématique, une architecture choisie et les leçons apprises en route. N'hésitez pas à fouiller, commenter ou ouvrir une issue.
         </p>
         <a
           href="https://github.com/Chaabane2k03"
@@ -287,16 +288,16 @@ function GithubSlide() {
 
 function MindmapCenter({ t }) {
   return (
-    <div className="rounded-2xl border border-white/25 bg-dark-800/95 px-6 py-5 text-center shadow-[0_0_60px_rgba(255,255,255,0.08)]">
+    <div className="rounded-2xl border border-white/25 bg-dark-800/95 px-8 py-6 text-center shadow-[0_0_60px_rgba(255,255,255,0.08)]">
       <p className="text-[10px] font-mono tracking-[0.18em] uppercase text-amber/70 mb-2">
         le cœur du métier
       </p>
-      <h3 className="font-display text-xl sm:text-2xl text-white leading-tight">
+      <h3 className="font-display text-2xl sm:text-3xl text-white leading-tight">
         {t("about.title")}{" "}
         <span className="gradient-text">{t("about.titleHighlight")}</span>
         {t("about.titleEnd")}
       </h3>
-      <p className="mt-2 text-slate-400 text-xs">
+      <p className="mt-2 text-slate-400 text-sm">
         Résoudre des problèmes, livrer des produits, créer de la valeur.
       </p>
     </div>
@@ -306,9 +307,9 @@ function MindmapCenter({ t }) {
 function MindmapQA({ q, a, index, className = "" }) {
   return (
     <article
-      className={`rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-4 transition-all duration-300 hover:-translate-y-1 hover:border-amber/30 hover:bg-white/[0.05] ${className}`}
+      className={`rounded-2xl border border-white/[0.08] bg-white/[0.03] backdrop-blur-sm p-5 transition-all duration-300 hover:-translate-y-1 hover:border-amber/30 hover:bg-white/[0.05] ${className}`}
     >
-      <div className="flex items-center justify-between gap-3 mb-1.5">
+      <div className="flex items-center justify-between gap-3 mb-2">
         <p className="text-[10px] font-mono text-amber/80">
           {BADGES[index % BADGES.length]}
         </p>
@@ -316,11 +317,11 @@ function MindmapQA({ q, a, index, className = "" }) {
           {MEMES[index % MEMES.length]}
         </span>
       </div>
-      <h4 className="text-white text-xs font-semibold leading-snug mb-1.5">
+      <h4 className="text-white text-sm font-semibold leading-snug mb-2">
         {q}
       </h4>
-      <p className="text-slate-400 text-[11px] leading-relaxed">
-        {shorten(a, 110)}
+      <p className="text-slate-400 text-sm leading-relaxed">
+        {shorten(a, 170)}
       </p>
     </article>
   );
@@ -340,7 +341,7 @@ function WhySESlide({ t, isActive }) {
 
       <div key={replay} className="h-full">
         {/* ---- Desktop / tablet: radial mindmap ---- */}
-        <div className="relative hidden sm:block h-full min-h-[520px]">
+        <div className="relative hidden sm:block h-full min-h-[640px]">
           <svg
             className="absolute inset-0 h-full w-full"
             viewBox="0 0 100 100"
@@ -382,7 +383,7 @@ function WhySESlide({ t, isActive }) {
                 q={qa[0]?.q}
                 a={qa[0]?.a}
                 index={0}
-                className="w-[240px]"
+                className="w-[300px]"
               />
             </div>
           </div>
@@ -392,7 +393,7 @@ function WhySESlide({ t, isActive }) {
                 q={qa[1]?.q}
                 a={qa[1]?.a}
                 index={1}
-                className="w-[240px]"
+                className="w-[300px]"
               />
             </div>
           </div>
@@ -402,7 +403,7 @@ function WhySESlide({ t, isActive }) {
                 q={qa[2]?.q}
                 a={qa[2]?.a}
                 index={2}
-                className="w-[240px]"
+                className="w-[300px]"
               />
             </div>
           </div>
@@ -412,7 +413,7 @@ function WhySESlide({ t, isActive }) {
                 q={qa[3]?.q}
                 a={qa[3]?.a}
                 index={3}
-                className="w-[240px]"
+                className="w-[300px]"
               />
             </div>
           </div>
@@ -496,7 +497,7 @@ export default function WhatIsSE() {
         </p>
 
         <div
-          className="relative min-h-[780px] sm:min-h-[620px] lg:min-h-[560px] overflow-hidden"
+          className="relative min-h-[1120px] sm:min-h-[920px] lg:min-h-[700px] overflow-hidden"
           role="region"
           aria-roledescription="carrousel"
           aria-label="À propos"

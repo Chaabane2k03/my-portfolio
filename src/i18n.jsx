@@ -125,6 +125,7 @@ const translations = {
           "Participation à des hackathons Machine Learning et innovation : conception du produit, pitch devant un jury et mentorat d'équipes universitaires. Mes pitchs sont consultables ci-dessous.",
         viewPitch: "Voir le pitch",
       },
+      clubs: "Clubs universitaires",
     },
     certifications: {
       title: "Certifications",
@@ -209,6 +210,18 @@ const translations = {
       experience: "Années d'expérience",
       projects: "Projets réalisés",
       technologies: "Technologies",
+    },
+    theme: {
+      dark: [
+        "Dark mode activé... toujours rien ne change. C'est une fonctionnalité, pas un bug.",
+        "Dark mode ON — déjà sombre, mais merci pour le clic. C'est une fonctionnalité, pas un bug.",
+        "Mode sombre : le changement, c'est pour les autres. C'est une fonctionnalité, pas un bug.",
+      ],
+      light: [
+        "Light mode activé... la lumière arrive, promis. C'est une fonctionnalité, pas un bug.",
+        "Light mode ON — tu vois la différence ? Moi non plus. C'est une fonctionnalité, pas un bug.",
+        "Mode clair : presque aussi sombre qu'avant. C'est une fonctionnalité, pas un bug.",
+      ],
     },
   },
   en: {
@@ -328,6 +341,7 @@ const translations = {
           "Participation in Machine Learning and innovation hackathons: product design, pitching in front of a jury, and mentoring university teams. My pitches are available below.",
         viewPitch: "View pitch",
       },
+      clubs: "University clubs",
     },
     certifications: {
       title: "Certifications",
@@ -410,6 +424,18 @@ const translations = {
       experience: "Years of experience",
       projects: "Projects completed",
       technologies: "Technologies",
+    },
+    theme: {
+      dark: [
+        "Dark mode on... still nothing changes. It's a feature, not a bug.",
+        "Dark mode ON — already dark, but thanks for the click. It's a feature, not a bug.",
+        "Dark mode: change is for other sites. It's a feature, not a bug.",
+      ],
+      light: [
+        "Light mode on... the light is coming, promise. It's a feature, not a bug.",
+        "Light mode ON — see any difference? Me neither. It's a feature, not a bug.",
+        "Light mode: almost as dark as before. It's a feature, not a bug.",
+      ],
     },
   },
 };

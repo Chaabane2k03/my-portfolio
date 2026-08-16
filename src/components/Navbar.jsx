@@ -1,6 +1,7 @@
 import { useState, useEffect, useRef, useCallback } from "react";
 import { FiMenu, FiX, FiSun, FiMoon } from "react-icons/fi";
 import { useI18n, LANGUAGES } from "../i18n";
+import ThemeToast from "./ThemeToast";
 
 const NAV_ITEMS = [
   { id: "hero", key: "hero" },
@@ -20,6 +21,7 @@ export default function Navbar() {
   const [scrolled, setScrolled] = useState(false);
   const [mobileOpen, setMobileOpen] = useState(false);
   const [dark, setDark] = useState(true);
+  const [toast, setToast] = useState(null);
   const [langOpen, setLangOpen] = useState(false);
   const [indicator, setIndicator] = useState({ left: 0, width: 0, opacity: 0 });
   const navItemRefs = useRef({});
@@ -213,7 +215,18 @@ export default function Navbar() {
 
             {/* Dark mode toggle */}
             <button
-              onClick={() => setDark(!dark)}
+              onClick={() => {
+                setDark((prev) => {
+                  const next = !prev;
+                  const jokes = t(next ? "theme.dark" : "theme.light");
+                  setToast({
+                    dark: next,
+                    message:
+                      jokes[Math.floor(Math.random() * jokes.length)],
+                  });
+                  return next;
+                });
+              }}
               className={`p-2 rounded-lg transition-all ${
                 dark
                   ? "text-slate-400 hover:text-amber hover:bg-white/5"
@@ -238,6 +251,14 @@ export default function Navbar() {
           </div>
         </div>
       </div>
+
+      {toast && (
+        <ThemeToast
+          message={toast.message}
+          dark={toast.dark}
+          onClose={() => setToast(null)}
+        />
+      )}
 
       {mobileOpen && (
         <div

@@ -102,7 +102,7 @@ const translations = {
           description:
             "Chez Galylio AI, j'ai développé la plateforme Tdiscount, un marketplace pour les vendeurs et ambassadeurs de produits. J'ai conçu et développé la plateforme avec des architectures scalables, en appliquant les concepts de sécurité, de CI/CD, d'accessibilité et de testing.",
           tags: ["Full-Stack", "System design", "Test SonarQube", "Security"],
-          pdfUrl: "",
+          pdfUrl: "/files/internships/Galylio IA  Rapport de stage.pdf",
           imageSrc: "",
         },
       ],
@@ -318,7 +318,7 @@ const translations = {
           description:
             "At Galylio AI, I built the Tdiscount platform, a marketplace for sellers and product ambassadors. I designed and developed the platform with scalable architectures, applying security, CI/CD, accessibility, and testing best practices.",
           tags: ["Full-Stack", "System design", "SonarQube testing", "Security"],
-          pdfUrl: "",
+          pdfUrl: "/files/internships/Galylio IA  Rapport de stage.pdf",
           imageSrc: "",
         },
       ],
